@@ -9,39 +9,66 @@ const song = document.getElementById("song");
 const surprise = document.getElementById("surprise");
 const card = document.querySelector(".card");
 
-// No button bhaagega
-function moveNoButton() {
-    const x = Math.random() * 250 - 125;
-    const y = Math.random() * 150 - 75;
+// Questions
+const questions = document.querySelectorAll(".question");
+const nextBtns = document.querySelectorAll(".nextBtn");
+
+let current = 0;
+
+// Next Question
+nextBtns.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        questions[current].classList.remove("active");
+
+        current++;
+
+        questions[current].classList.add("active");
+
+    });
+
+});
+
+// No Button Move
+function moveNoButton(){
+
+    const x = Math.random()*250-125;
+    const y = Math.random()*180-90;
 
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
 }
 
 noBtn.addEventListener("mouseover", moveNoButton);
 
 noBtn.addEventListener("touchstart", function(e){
+
     e.preventDefault();
+
     moveNoButton();
+
 });
 
-// YES CLICK
-yesBtn.addEventListener("click", () => {
+// YES
+yesBtn.addEventListener("click",()=>{
 
-    proposal.style.display = "none";
-    mainCard.style.display = "block";
+    proposal.style.display="none";
+
+    mainCard.style.display="block";
 
     song.play();
 
-    btn.innerHTML = "💖 Playing... 💖";
-    btn.disabled = true;
+    btn.innerHTML="💖 Playing... 💖";
 
-    card.style.transform = "scale(1.03)";
-    card.style.transition = "0.5s";
+    btn.disabled=true;
 
     createSparkles();
 
-    setTimeout(() => {
+    setTimeout(()=>{
+
         surprise.classList.add("show");
+
     },5000);
 
 });
