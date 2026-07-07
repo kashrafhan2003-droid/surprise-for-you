@@ -192,3 +192,45 @@ animation:heartbeat 1s infinite;
 opacity:0;
 visibility:hidden;
 }
+
+/* Proposal Screen */
+
+#proposal{
+    text-align:center;
+}
+
+.buttons{
+    margin-top:25px;
+    position:relative;
+    height:80px;
+}
+
+#yesBtn,#noBtn{
+    padding:15px 30px;
+    border:none;
+    border-radius:40px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#yesBtn{
+    background:#ff4d88;
+    color:white;
+    margin-right:15px;
+}
+
+#yesBtn:hover{
+    transform:scale(1.1);
+    background:#ff0066;
+}
+
+#noBtn{
+    background:white;
+    color:#ff0066;
+    position:absolute;
+}
+
+#mainCard{
+    display:none;
+}
